@@ -13,6 +13,7 @@ public class BinarySearchDemo {
      * @param arr   查找的数组
      * @param index 需要查找的数据
      * @return      数据在数组的位置
+     *              返回：-1 表示查找失败
      */
     private static int binarySearch(int[] arr, int index)
     {
@@ -37,8 +38,6 @@ public class BinarySearchDemo {
                 return mid;
             }
         }
-
-
         return -1;
     }
 }
