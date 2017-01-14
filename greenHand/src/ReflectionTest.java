@@ -135,9 +135,38 @@ public class ReflectionTest
            System.out.println(type.getName() + " " + name + ";");
        }
    }
+}
 
-
-
-
-
+class ObjectAnalyzer
+{
+    private String toString(Object obj)
+    {
+        Class cl = obj.getClass();
+        String r = cl.getName();
+        //inspect the fields of this class and all superclasses
+        do
+        {
+            r += "[";
+            Field[] fields = cl.getDeclaredFields();
+            AccessibleObject.setAccessible(fields, true);
+            //get the names and values of al fields
+            for(Field f : fields)
+            {
+                if(!Modifier.isStatic(f.getModifiers()))
+                {
+                    if(!r.endsWith("[")) r+= ",";
+                    r += f.getName() + "=";
+                    try
+                    {
+                        Object val = f.get(obj);
+                        r += toString(val);
+                    }
+                    catch (Exception e){e.printStackTrace();}
+                }
+            }
+            r += "]";
+            cl = cl.getSuperclass();
+        }while (cl != null);
+        return r;
+    }
 }
