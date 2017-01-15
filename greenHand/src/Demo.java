@@ -14,8 +14,6 @@ public class Demo {
             System.out.println("Good job--you paid attention to the _._");
         }
 
-
-
     }
 }
 
@@ -23,8 +21,8 @@ enum Size
 {
     SMALL("S"),MEDIUM("M"),LARGE("l"),EXTRA_LANRGE("XL");
 
-    private Size(String abbreviation){this.abbreviation = abbreviation;};
-    public String getAbbrevitaion(){return abbreviation;};
+    Size(String abbreviation){this.abbreviation = abbreviation;}
+    public String getAbbrevitaion(){return abbreviation;}
 
     private String abbreviation;
 }
