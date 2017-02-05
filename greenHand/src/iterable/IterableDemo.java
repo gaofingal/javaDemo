@@ -1,4 +1,4 @@
-package simpleFrame;
+package iterable;
 
 import java.util.*;
 
