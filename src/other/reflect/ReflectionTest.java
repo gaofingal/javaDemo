@@ -1,4 +1,4 @@
-package other.reflection;
+package other.reflect;
 
 import javax.swing.plaf.synth.SynthEditorPaneUI;
 import java.util.*;
